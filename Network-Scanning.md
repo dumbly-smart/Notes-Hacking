@@ -142,12 +142,9 @@ To properly understand fragmentation, we need to look at the IP header in the fi
 
 -dd 	more details for debugging
 
-**Traceroute**
+--traceroute shows no of hops
 
-If you want Nmap to find the routers between you and the target, just add `--traceroute`. In the following example, Nmap appended a traceroute to its scan results. Note that Nmap’s traceroute works slightly different than the `traceroute` command found on Linux and macOS or `tracert` found on MS Windows. Standard `traceroute` starts with a packet of low TTL (Time to Live) and keeps increasing until it reaches the target. Nmap’s traceroute starts with a packet of high TTL and keeps decreasing it.
-
-
-You can specify to use any or a group of these installed scripts; moreover, you can install other user’s scripts and use them for your scans. Let’s begin with the default scripts. You can choose to run the scripts in the default category using --script=default or simply adding -sC. In addition to default, categories include auth, broadcast, brute, default, discovery, dos, exploit, external, fuzzer, intrusive, malware, safe, version, and vuln. A brief description is shown in the following table.
+-sc default scripts
 
 Script Category 	Description
 
@@ -184,3 +181,18 @@ Some scripts belong to more than one category. Moreover, some scripts launch bru
 
 You can also specify the script by name using --script "SCRIPT-NAME" or a pattern such as --script "ftp*", which would include ftp-brute. If you are unsure what a script does, you can open the script file with a text reader, such as less, or a text editor. In the case of ftp-brute, it states: “Performs brute force password auditing against FTP servers.” You have to be careful as some scripts are pretty intrusive. Moreover, some scripts might be for a specific server and, if chosen at random, will waste your time with no benefit. As usual, make sure that you are authorized to launch such tests on the target server.
 
+
+
+Option 	Meaning
+-sV 	determine service/version info on open ports
+-sV --version-light 	try the most likely probes (2)
+-sV --version-all 	try all available probes (9)
+-O 	detect OS
+--traceroute 	run traceroute to target
+--script=SCRIPTS 	Nmap scripts to run
+-sC or --script=default 	run default scripts
+-A 	equivalent to -sV -O -sC --traceroute
+-oN 	save output in normal format
+-oG 	save output in grepable format
+-oX 	save output in XML format
+-oA 	save output in normal, XML and Grepable formats
