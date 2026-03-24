@@ -233,6 +233,3 @@ $  -u ://10.49.141.158:5000/challenge3/login --data="username=admin&password
 
 ![](https://assets.tryhackme.com/additional/imgur/Zd65ZQP.png)  
 
-##### Task
-
-Exploit the vulnerable login form and retrieve the flag.
