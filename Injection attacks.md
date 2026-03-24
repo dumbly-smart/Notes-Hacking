@@ -145,7 +145,7 @@ The passwords can also be retrieved by decoding the Flask session cookie:
 
 }
 
-#### *Vulnerable notes*
+#### **Vulnerable notes**
 
 Here, the previous vulnerabilities have been fixed, and the login form is no longer vulnerable to injection. The team has added a new note function, allowing users to add notes on their page. The goal of this challenge is to find the vulnerability and dump the database to find the flag.  
 
