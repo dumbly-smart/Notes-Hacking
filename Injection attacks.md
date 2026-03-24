@@ -60,6 +60,27 @@ When submitting the login form for this challenge, it uses the POST method. It i
 [![](https://assets.tryhackme.com/additional/imgur/LRnr2WQ.png)](https://assets.tryhackme.com/additional/imgur/LRnr2WQ.png)
 
 
+#### **Vulnerable update**
+
+For this challenge, the vulnerability on the note page has been fixed. A new change password function has been added to the application, so the users can now change their password by navigating to the Profile page. The new function is vulnerable to injection because the UPDATE statement concatenates the username directly into the query, as can be seen below. The goal here is to exploit the vulnerable function to gain access to the admin's account.  
+
+##### Description
+
+The developer has used a placeholder for the password parameter because this input comes directly from the user. The username does not come directly from the user but is rather fetched from the database based on the user id stored in the session object. Therefore, the developer has thought that the username was safe to use and concatenated it directly into the query instead of using a placeholder:
+
+UPDATE users SET password = ? WHERE username = '" + username + "'
+
+To exploit this vulnerability and gain access to the admin's user account, we can create a user with the name `admin'-- -`.
+
+After having registered the malicious user, we can update the password for our new user to trigger the vulnerability. When changing the password, the application executes two queries. First, it asks the database for the username and password for our current user:  
+
+SELECT username, password FROM users WHERE id = ?
+
+If all checks are fine, it will try to update the password for our user. Since the username gets concatenated directly into the SQL query, the executed query will look as follows:
+
+UPDATE users SET password = ? WHERE username = 'admin' -- -'
+
+This means that instead of updating the password for `admin' -- -`, the application updated the password for the _admin_ user. After having updated the password, it is possible to log in as admin with the new password and view the flag.
 
 #### **SQL INJECTION Union**
 
