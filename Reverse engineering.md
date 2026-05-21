@@ -38,3 +38,28 @@ linker - add the interpreter information and links everything add entry and exit
 10. relocations updated
 
 where its loaded - [https://gist.github.com/CMCDragonkai/10ab53654b2aa6ce55c11cfc5b2432a4](https://gist.github.com/CMCDragonkai/10ab53654b2aa6ce55c11cfc5b2432a4)
+
+### Initialization
+Every ELF binary can specify constructors, which are functions that run before the program is actually launched.
+
+  
+
+For example, depending on the version, libc can initialize memory regions for dynamic allocations (malloc/free) when the program launches.
+
+  
+
+You can specify your own!
+
+  
+
+__attribute__((constructor)) void haha()
+
+{
+
+puts("Hello world!");
+
+}
+
+  
+
+Demo: LD_PRELOAD and constructors.
