@@ -36,3 +36,5 @@ linker - add the interpreter information and links everything add entry and exit
 9. these libraries can depend on other libraries, causing more to be loaded
     
 10. relocations updated
+
+where its loaded - [https://gist.github.com/CMCDragonkai/10ab53654b2aa6ce55c11cfc5b2432a4](https://gist.github.com/CMCDragonkai/10ab53654b2aa6ce55c11cfc5b2432a4)
