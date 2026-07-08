@@ -30,7 +30,7 @@ ML algorithms are the mathematical methods used to learn patterns from data. The
 
 A neural network is made up of layers of nodes, where each node represents a neuron and each connection between nodes acts as a synapse. The **input layer** receives raw data. The number of nodes it has depends on the data type: a 4x4 pixel image, for example, has 16 input nodes, one per pixel. The **hidden layers** in the middle process and refine that input, extracting increasingly complex features as the signal moves deeper. Each connection carries a **weight** that determines how much influence it has on the next layer. The **output layer** produces the final prediction.
 
-
+![[Pasted image 20260708144815.png]]
 
 Consider a neural network tasked with recognising a handwritten digit. Early hidden layers detect simple features like edges and curves. Deeper layers combine those features into more complex patterns. A straight vertical line increases the likelihood of a 1 or 7. Curves push probability toward 3, 8, or 0. The output layer has one node per possible digit, and whichever scores highest wins. When a network has more than three layers, it qualifies as a **Deep Learning (DL)** algorithm, hence the name.
 
