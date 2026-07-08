@@ -35,3 +35,21 @@ A neural network is made up of layers of nodes, where each node represents a neu
 Consider a neural network tasked with recognising a handwritten digit. Early hidden layers detect simple features like edges and curves. Deeper layers combine those features into more complex patterns. A straight vertical line increases the likelihood of a 1 or 7. Curves push probability toward 3, 8, or 0. The output layer has one node per possible digit, and whichever scores highest wins. When a network has more than three layers, it qualifies as a **Deep Learning (DL)** algorithm, hence the name.
 
 The key distinction between and DL is that DL doesn't require labelled data. Where supervised needs a human to attach correct answers to training examples, a DL algorithm can take raw, unstructured input and determine its own features. No human intervention means larger datasets can be processed, which is why DL is sometimes described as scalable .
+
+## LLMS
+
+Large Language Models are deep learning-based models that process and generate text by predicting the next word in a sequence. When you send a message to a chatbot, what's happening in the background is a rapid series of predictions about what word should come next in the response, repeated until the reply is complete. The key question is: how does the model get good enough at those predictions to be useful?
+
+LLMs are first trained in a **pre-training** phase, where they process enormous volumes of text. GPT-3 alone was trained on data that would take a human 2,600 years to read nonstop. Instead of labelled data, LLMs rely on billions of **parameters**, numerical values that function like puzzle pieces, collectively encoding the model's understanding of language. During pre-training, the model is fed a piece of text with the final word removed and asked to predict it. Its initial guess is random. That guess is then compared against the correct answer, and the parameters are adjusted via an algorithm called **backpropagation** to make the right answer more likely next time. Repeat this process trillions of times across a vast dataset and the model develops a remarkably accurate sense of how language works.
+
+![LLM being fed sentence and making predictions on what last word will be](https://tryhackme-images.s3.amazonaws.com/user-uploads/6228f0d4ca8e57005149c3e3/room-content/6228f0d4ca8e57005149c3e3-1745606636896.svg)
+
+The scale of pre-training is only possible because of advances in hardware (specifically GPUs enabling parallel processing) and a specific type of neural network called **transformer neural networks**. Introduced in Google's 2017 paper _Attention is All You Need_, transformers enabled parallel text processing instead of sequential word-by-word analysis. The key innovation was **attention**: the ability to assign different levels of importance to different words depending on context. Take this sentence:
+
+_"The bank approved the loan because it was financially stable."_
+
+A model without attention might struggle to resolve what "it" refers to. Transformers calculate attention scores across the whole sentence, correctly linking "it" back to "the bank" rather than "the loan."
+
+After pre-training, humans come back into the loop in a process called **RLHF (Reinforcement Learning from Human Feedback)**. Reviewers evaluate model outputs, flag anything unhelpful or problematic, and the parameters are adjusted accordingly. This is the step that shapes a raw language model into something usable as a chatbot or assistant.
+
+![[Pasted image 20260708151042.png]]
