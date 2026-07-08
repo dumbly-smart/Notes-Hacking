@@ -10,3 +10,9 @@
 
 One term worth flagging here is overfitting. This is when a model becomes so familiar with its that it fails to generalise to new, unseen data. Rather than learning the underlying pattern, it essentially memorises the examples it was trained on. You'll hear this term come up again later in the path, particularly in a security context.
 
+
+## ML
+
+ML algorithms are the mathematical methods used to learn patterns from data. The trained outputs they produce are what we call models. Every algorithm follows the same basic structure: a **decision process** that makes predictions based on input data, an **error function** that evaluates how far off those predictions were, and a **model optimisation process** that adjusts the algorithm to do better next time. This loop repeats until the model reaches a satisfactory level of performance.
+
+![[Pasted image 20260708133949.png]]
