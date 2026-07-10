@@ -191,3 +191,6 @@ Option 	Meaning
 -oG 	save output in grepable format
 -oX 	save output in XML format
 -oA 	save output in normal, XML and Grepable formats
+
+
+nmap -A -T4 -p 3306,3389,445,139,135
